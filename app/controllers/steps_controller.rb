@@ -14,7 +14,9 @@ class StepsController < ApplicationController
 
   # GET /steps/new
   def new
+    list =  List.find(params[:list_id])
     @step = Step.new
+    @step.list = list
   end
 
   # GET /steps/1/edit
@@ -25,14 +27,13 @@ class StepsController < ApplicationController
   # POST /steps.json
   def create
     @step = Step.new(step_params)
+    @step.list_id = params[:list_id]
 
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
-        format.json { render :show, status: :created, location: @step }
+        format.html { redirect_to list_path(@step.list), notice: 'Step was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,11 +65,13 @@ class StepsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_step
+
       @step = Step.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:name, :description)
+      params.require(:step).permit(:name, :description,:list_id)
     end
 end
