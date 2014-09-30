@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: step 1
+  description: do blah blah blah 111
+  list: firstList
+two:
+  name: step 2
+  description: do blah blah blah 22
+  list: firstList

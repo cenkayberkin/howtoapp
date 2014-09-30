@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'better_errors'
 gem 'eefgilm'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
@@ -11,3 +12,4 @@ gem 'spring', group: :development
 gem 'sqlite3'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'binding_of_caller'

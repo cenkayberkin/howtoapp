@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @list.name %>
+</p>
+<p>
+  <ul>
+  <% @list.steps.each do |step| %>
+    <li>
+      <p><%= link_to step.name, [@list, step]  %></p>
+      <p><%= step.description %></p>
+    </li>
+  <% end%>
+</ul>
+</p>
+
+<%= link_to 'New Step', new_list_step_path(@list) %>
+<%= link_to 'Back', lists_path %>
